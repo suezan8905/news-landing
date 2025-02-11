@@ -1,0 +1,269 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap');
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    text-decoration: none;
+    font-family: Inter, sans-serif;
+}
+
+:root{
+--Softorange: hsl(35, 77%, 62%);
+--Softred: hsl(5, 85%, 63%);
+--Off-white: hsl(36, 100%, 99%);
+--Grayishblue: hsl(233, 8%, 79%);
+--Darkgrayishblue: hsl(236, 13%, 42%);
+--Verydarkblue: hsl(240, 100%, 5%);
+}
+
+body{
+    max-width: 1280px;
+    margin: 0 auto;
+}
+
+p{
+    font-size: 15px;
+    line-height: 1.5;
+    color: var(--Darkgrayishblue);
+}
+
+/* padding creates spaces inside of a container, while margin outside of the container */
+nav{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 24px;
+}
+
+/* using decendant to target a specifiic element without creating a class name */
+nav div a{
+    color: var(--Darkgrayishblue);
+    margin-left: 40px;
+}
+
+/* to rempove the icon on destop screen) */
+/* by default you can use a class name (which works) and also first of type and the last of type
+fitst of type: as the name emplies, the two elements must be of the same tyoe (have 2 images under one div)
+it is used to pass a specific style*/
+
+nav img:last-of-type{
+    display: none;
+}
+
+.pic-container img:last-of-type{
+    display: none;
+}
+
+.pic-container{
+    width: 68%;
+}
+
+.hero-content{
+    padding: 24px;
+     /* display was given to enable the new container come to the side */
+    display: flex;
+    justify-content: space-between;
+}
+
+/* .pic-container{
+    padding:24px;
+} */
+
+.pic-container img{ 
+    width: 100%;
+}
+
+.pic-container-text{
+    display: flex;
+    margin-top: 24px;
+    justify-content: space-between;
+    /* the justify content was done to enalbe the remaining space at the edge come to the middle  */
+}
+
+/* pixels are absolute and you dont use pixel for font size, we should use em more(em are absolute and their values are
+more bigger, hence advised to use more comparing naira to dollar. even if wwere given px in figma. 
+1rem is 16px (you can use px to em converter for better calculations) */
+
+.pic-container-text h1{
+    font-size: 2.8rem; 
+    font-weight: 800;
+    width: 280px;
+    /* the widthh of 280px was used we do not want the max width to change, so rather we use px as it is absolute (does
+    not change anyhow) */
+}
+
+/* the div before the button */
+.pic-container-text div{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 47%;
+}
+
+.pic-container-text button{
+    background-color:var(--Softred) ;
+    border: none;
+    text-transform: uppercase;
+    color: var(--Off-white);
+    width: 150px;
+    height: 40px;
+    font-weight: 700;
+    letter-spacing: 2px;
+}
+
+.text-container{
+    width: 28%;
+    padding: 20px;
+    background-color: var(--Verydarkblue);
+    display: flex;
+    /* the display flex was used to enable use the justify, and then flex direction back to colurm to leave the work
+     as it was while allowing the whole content occupy the container */
+     flex-direction: column;
+     justify-content: space-between;
+}
+
+.text-container h1{
+     color: var(--Softorange)
+}
+
+.text-container h4{
+    color: var(--Off-white);
+    margin: 14px 0;
+    /* margin was used to create space between the text */
+}
+
+.text-container div{
+    /* gap wil be used to create space 
+    the padding top and botom will used to create spaces between the h1 (NEW) and each of the div below */
+    padding: 24px 0;
+}
+
+.card-container{
+    display: flex;
+    padding: 24px;
+    margin-top: 24px;
+    /* to enable the box in the container fit properly */
+    justify-content: space-between;
+}
+
+.inner-card img{
+    height: 120px;
+}
+
+.inner-card{
+    display: flex;
+    gap: 15px;
+    /* to ensure the boxs alighn properly */
+    width: 28%;
+}
+
+.inner-card div h4{
+    margin: 10px 0;
+
+
+}
+
+
+/* media query for the tavlet screen 
+take note. the 992 will go down to */
+
+@media(max-width: 1024px){
+
+/* working on removing the text container come down and occupy the space */
+/* take note, the display will effect the mobile screen */
+    .hero-content{
+        display: block;
+    }
+
+        /* the width in the hero section,pic container was initially on 68% to enable the text cnt take up 28% and the space
+    inbtw. now to enable the pic occupy the full space, we cal the width on 100% */
+
+    .pic-container{
+        width: 100%;
+         /* to give the pic-container margin on the botom */
+         margin-bottom: 40px;
+    }
+    
+    .text-container{
+        width: 100%;
+    }
+
+    /* we are using flex wrap to enable the images go underneath */
+    .card-container{
+        flex-wrap: wrap;
+    }
+
+    .inner-card{
+        width: 47%;
+        /* the width was changed for this to fit the ipad screen */
+        margin-bottom: 20px;
+    }
+    
+}
+
+@media(max-width: 576px){
+    nav div{
+        display: none;
+    }
+
+    nav img:last-of-type{
+        display: block;
+    }
+
+/* this was done to enable the mobile screen show on mobile only */
+/* psuedo selectors are last-of-type etc. */
+    .pic-container img:first-of-type{
+    display: none;
+    }
+
+    .pic-container img:last-of-type{
+    display: block;
+    }
+
+    /* working on adjusting the movile screen 
+    we were targetting the h1 tag under the pic-container-text*/
+
+    .pic-container-text {
+        display: block;
+    }
+
+    /* exrwnding the width of the pic-container-text
+    the pic-container-text is used aswell since they both have thesame value */
+
+    .pic-container-text h1, .pic-container-text div{
+        width: 100%;
+    }
+
+    .pic-container-text div p{
+        margin-top: 20px;
+        /* margin 20px o; is same */
+        margin-bottom: 20px;
+    }
+
+    /* were working on the mobile screen */
+    .card-container{
+        display: block;
+        /* were increasing the width so the content can occupy it all */
+    }
+
+    .inner-card{
+        width: 100%;
+        /* the width was put at 100% so as the change made to fit the ipad screen does not affect the small screen 
+        (mobile scree) */
+    }
+}
+/* smaller screen  */
+@media(max-width: 364px){
+    .inner-card img{
+        height: 140px;
+    }
+
+    .inner-card div{
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+
+    }
+}
+
